@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simon game!</title>
+        <meta name="description" content="A cool thing made with Gomix">
+        <link id="favicon" rel="icon" href="https://gomix.com/favicon-app.ico" type="image/x-icon">
+        <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch|Julius+Sans+One|Permanent+Marker" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="public/style.css">
+    </head>
+    <body>
+        <header>
+            <h1>Simon game
+      </h1>
+        </header>
+        <main>
+            <div class="board">
+                <div class="slide1">
+                    <div class="top">
+                        <a href="#" id="pos1" data-pos="1">
+                            <div class="dail left"></div>
+                        </a>
+                        <a href="#" id="pos2" data-pos="2">
+                            <div class="dail right"></div>
+                        </a>
+                    </div>
+                    <div class="bottom">
+                        <a href="#" id="pos3" data-pos="3">
+                            <div class="dail left"></div>
+                        </a>
+                        <a href="#" id="pos4" data-pos="4">
+                            <div class="dail right"></div>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <div class="center">
+                        <div class="screen">
+                            <label for="display">level</label>
+                            <div class="notice warning"></div>
+                            <div class="notice info"></div>
+                            <div class="controls" >
+                                <div style="height: 74px;position: relative;">
+                                    <div id="em-display" style="float: left;height: 30px;">
+                                        count
+                                        <input type="text" id="display" name="display">
+                                    </div>
+                                    <div id="em-start" style="float: left;height: 30px;margin-top: 22px;">
+                                        <button type="button" id="start">start</button>
+                                    </div>
+                                    <div id="em-strict" style="float: left;height: 30px;margin-top: 22px;">
+                                        <button type="button" id="strict" class="off" 1="">strict</button>
+                                    </div>
+                                </div>
+                                <div style="height: 55px;position: relative;">
+                                    <button type="button"  class="off" id="state">on</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div>
+            <a href="https://github.com/tobi-et-al">Built with ❤️ &🍪 by toebee
+        </a>
+        </div>
+        <!-- Your web-app is https, so your scripts need to be too -->
+        <script src="https://code.jquery.com/jquery-2.2.1.min.js" integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00=" crossorigin="anonymous"></script>
+        <script src="public/client.js"></script>
+    </body>
+</html>
