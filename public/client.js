@@ -77,11 +77,9 @@ $(function() {
                         var capturedindex = i
                         sequence = sequence.then(function() {
                             return controller.displayPlay(moves[capturedindex])
-                        }).then(function() {
-                            // ready for user to play
- 
-                        }).catch(function(err) {
-                            console.log('Error ' + err)
+                        }).then(function() {// ready for user to play
+
+                        }).catch(function(err) {//console.log('Error ' + err)
                         })
                     }())
                     // invoke closure function immediately
@@ -107,10 +105,10 @@ $(function() {
             clearTimeout(this.countdown);
         },
         checkPlay: function(nodata) {
-            console.log('...checking')
+            //console.log('...checking')
             //clear timer
             this.clearCountdown();
-            console.log(this.moves.pc);
+            //console.log(this.moves.pc);
             var userMoves = this.moves.user;
             var pcMoves = this.moves.pc.slice(0, userMoves.length);
             var position = this.position;
@@ -134,7 +132,7 @@ $(function() {
                 }
                 setTimeout(function() {
                     if (controller.StrictMode == true) {
-                        console.log("strict mode")
+                        //console.log("strict mode")
                         controller.moves.user = [];
                         controller.moves.pc = [];
                         controller.count = 1;
@@ -158,6 +156,9 @@ $(function() {
                     view.setWarningNotice("");
 
                     if ((controller.count) < 20) {
+
+                        view.setWarningNotice("")
+                        view.setInfoNotice("Good job!")
                         setTimeout(function() {
                             controller.moves.user = [];
                             controller.position = -1;
