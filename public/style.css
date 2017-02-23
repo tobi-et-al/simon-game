@@ -30,7 +30,7 @@ p {
 }
 
 .controls {
-    margin-top: 5px;
+    margin-top: 20px;
     height: 100px;
 }
 
@@ -53,7 +53,7 @@ p {
     float: left;
     height: 250px;
     border-radius: 0% 50% 0% 0%;
-    background-color: rgb(119, 0, 0);
+    background-color: #00007b;
 }
 
 .bottom .left {
@@ -62,7 +62,7 @@ p {
     float: left;
     height: 250px;
     border-radius: 0% 0% 0% 50%;
-    background-color: rgb(162, 133, 0);
+    background: #636300;
 }
 
 .bottom .right {
@@ -71,15 +71,9 @@ p {
     float: left;
     height: 250px;
     border-radius: 0% 0% 50% 0%;
-    background-color: rgb(0, 54, 168);
+    background-color: rgb(138, 0, 0);
 }
-
-/*
-.bottom .right:hover{
-    background-color: rgba(222, 29, 29, 0.54);
-    box-shadow: #1c0000 0px -20px 0px 0px inset;
-    animation: all 4.5s;
-}*/
+ 
 .center {
     clear: both;
     border: 15px solid rgb(74, 74, 74);
@@ -93,38 +87,24 @@ p {
 
 .top .dail.left.active {
     transition: 1s all;
-    background: rgb(0, 255, 171);
+    background-color: rgb(0, 255, 171) !important;
 }
 
 .top .dail.right.active {
     transition: 1s all;
-    background: rgb(255, 0, 0)
+    background-color: rgb(0, 147, 255) !important;
 }
 
 .bottom .dail.left.active {
     transition: 1s all;
-    background: rgb(255, 210, 0);
+    background-color: #ffe200 !important;
 }
 
 .bottom .dail.right.active {
-    transition: 1s all;
-    background: rgb(0, 81, 255);
+    transition: 1s linear;
+    background-color: red !important;
 }
-
-/*
-.top .right:hover {
-    background-color: #b40101;
-}
-.top .left:hover {
-    background-color: #01b479;
-}
-.bottom .right:hover {
-    background-color: #013ab4;
-}
-.bottom .left:hover {
-    background-color: #b49401;
-}
-*/
+ 
 main {
     clear: both;
 }
@@ -148,7 +128,7 @@ input {
     display: block;
     margin-bottom: 10px;
     padding: 5px 5px 5px 17px;
-    width: 80px;
+    width: 65px;
     border: 1px solid lightgrey;
     border-radius: 3px;
     background: rgb(66, 52, 52);
@@ -197,6 +177,10 @@ button.on, #state.on {
     text-shadow: #ffffff 0px 1px 3px;
     font-weight: bold;
     transition: all 0.0s;
+    width: 45px;
+    width: 106px;
+    height: 25px;
+    margin-left: 43px;
 }
 
 #state {
@@ -204,17 +188,36 @@ button.on, #state.on {
 }
 
 label {
-    font-size: 2em;
-    line-height: 3em;
+    /* font-size: 2em; */
+    /* line-height: 3em; */
 }
 
 .notice {
     font-family: monospace;
     color: crimson;
-    font-size: 1.5em;
+    font-size: 1.2em;
+    height: 1em;
+    padding-top: 40px;
 }
 
 .notice.info {
     color: blue;
-    font-size: 1.5em;
+    font-size: 1.2em;
+}
+button#state {
+    width: 106px;
+    height: 25px;
+    margin-left: 40px;
+}
+button#strict.on {
+    font-size: 16px;
+    border-radius: 3px;
+    background-color: lightgrey;
+    border: 1px solid grey;
+    box-shadow: 2px 2px teal;
+    cursor: pointer;
+    height: 40px;
+    margin-left: 10px;
+    width: 56px;
+    background-color: yellow;
 }

@@ -1,16 +1,10 @@
-// client-side js
-// run by the browser each time your view template is loaded
-
-// by default, you've got jQuery,
-// add other scripts at the bottom of index.html
-
 $(function() {
     var data = {};
     var controller = {
         init: function() {
             this.actions = "button";
             this.state = false;
-            this.level = 0;
+            this.count = 1;
             this.StrictMode = false;
             this.moves = {
                 user: [],
@@ -19,6 +13,7 @@ $(function() {
             //set interval to check value
             this.playInterval = 6000;
             view.init();
+
         },
         power: function(v) {
             this.state = v;
@@ -49,7 +44,7 @@ $(function() {
                 audio.play();
                 break;
             default:
-                var audio = new Audio('https://cdn.gomix.com/d7877e8a-d25e-4f15-971f-e734fd29458d%2FWrong-answer-sound-effect%20(1).mp3');
+                var audio = new Audio('https://cdn.gomix.com/d7877e8a-d25e-4f15-971f-e734fd29458d%2FWrong-answer-soundx.mp3');
                 audio.play();
             }
         },
@@ -61,7 +56,7 @@ $(function() {
                     //save play
                     controller.moves.pc.push(randomPlay);
                     //updated display
-                    view.setScreen(controller.level);
+                    view.setScreen(controller.count);
                     //make play
                     controller.makeMove();
                 }
@@ -70,7 +65,6 @@ $(function() {
         },
         makeMove: function() {
             this.turn = 0
-
             var moves = this.moves.pc;
 
             if (moves.length > 0) {
@@ -84,10 +78,8 @@ $(function() {
                         sequence = sequence.then(function() {
                             return controller.displayPlay(moves[capturedindex])
                         }).then(function() {
-                            console.log('removeClass' + i + ' ' + Math.random());
                             // ready for user to play
-                            console.log('users turn')
-
+ 
                         }).catch(function(err) {
                             console.log('Error ' + err)
                         })
@@ -118,14 +110,14 @@ $(function() {
             console.log('...checking')
             //clear timer
             this.clearCountdown();
-
+            console.log(this.moves.pc);
             var userMoves = this.moves.user;
             var pcMoves = this.moves.pc.slice(0, userMoves.length);
             var position = this.position;
 
             if (this.moves.pc[position] !== this.moves.user[position] || nodata == true) {
 
-                console.log('moves dont match', this.moves.pc[position], this.moves.user[position]);
+                //console.log('moves dont match', this.moves.pc[position], this.moves.user[position]);
 
                 // play annoying buzz sound
                 this.sound(null);
@@ -145,12 +137,13 @@ $(function() {
                         console.log("strict mode")
                         controller.moves.user = [];
                         controller.moves.pc = [];
-                        controller.level = 0;
+                        controller.count = 1;
                         controller.position = -1;
                         controller.initGame();
 
                     } else {
-                        view.setScreen(controller.level);
+
+                        view.setScreen(controller.count);
                         controller.position = -1;
                         controller.moves.user = [];
                         controller.makeMove();
@@ -163,12 +156,27 @@ $(function() {
                 if (this.moves.pc[position + 1] == undefined) {
                     view.setInfoNotice("");
                     view.setWarningNotice("");
-                    setTimeout(function() {
-                        controller.moves.user = [];
-                        this.position = -1;
-                        this.level += 1;
-                        controller.initGame();
-                    });
+
+                    if ((controller.count) < 20) {
+                        setTimeout(function() {
+                            controller.moves.user = [];
+                            controller.position = -1;
+                            controller.count += 1;
+                            controller.initGame();
+                        });
+                    } else {
+                        view.setWarningNotice("");
+                        view.setInfoNotice("Congrats! You WON!");
+                        setTimeout(function() {
+                            //console.log("strict mode")
+                            controller.moves.user = [];
+                            controller.moves.pc = [];
+                            controller.count = 1;
+                            controller.position = -1;
+                            controller.initGame();
+                        }, 500);
+
+                    }
                 }
             }
         },
@@ -218,7 +226,6 @@ $(function() {
         },
         actions: function() {
             $(view.getActionButtons()).on('click', function(e) {
-                console.log(e.target.id)
 
                 switch (e.target.id) {
                 case "state":
@@ -234,16 +241,25 @@ $(function() {
                     }
                     break;
                 case "start":
-                    var elem = $('#' + e.target.id);
-                    view.setInfoNotice("")
-                    view.setWarningNotice("")
-                    controller.level = 0;
-                    controller.moves = {
-                        user: [],
-                        pc: []
-                    };
-                    controller.clearCountdown();
-                    controller.initGame();
+                    if (controller.state) {
+                        var elem = $('#' + e.target.id);
+                        if ($('button#start').text() === "restart") {
+                            //console.log("yes")
+                            view.setInfoNotice("restarting game...")
+                            view.setWarningNotice("")
+                        } else {
+                            view.setInfoNotice("starting game...")
+                            view.setWarningNotice("")
+                        }
+                        $('button#start').text("restart");
+                        controller.count = 1;
+                        controller.moves = {
+                            user: [],
+                            pc: []
+                        };
+                        controller.clearCountdown();
+                        controller.initGame();
+                    }
                     break;
                 case "strict":
                     if (controller.state) {
@@ -265,8 +281,6 @@ $(function() {
             })
         },
         enableDail: function() {
-            console.log('enable dail');
-            console.log(controller.turn);
             $('.board a').on('click', function() {
                 if (controller.turn == 1) {
                     $(this).find('.dail').addClass('active');
