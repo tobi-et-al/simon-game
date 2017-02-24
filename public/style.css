@@ -25,13 +25,14 @@ p {
 }
 
 .screen {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
 }
 
 .controls {
-    margin-top: 20px;
+    margin-top: 45px;
     height: 100px;
+    padding-left: 5px;
 }
 
 .panel {
@@ -40,36 +41,36 @@ p {
 
 .top .left {
     border: 15px solid rgb(74, 74, 74);
-    width: 250px;
+    width: 50%;
     float: left;
-    height: 250px;
+    height: 100%;
     border-radius: 50% 0% 0% 0%;
     background-color: rgb(0, 123, 82);
 }
 
 .top .right {
     border: 15px solid rgb(74, 74, 74);
-    width: 250px;
+    width: 50%;
     float: left;
-    height: 250px;
+    height: 100%;
     border-radius: 0% 50% 0% 0%;
     background-color: #00007b;
 }
 
 .bottom .left {
     border: 15px solid rgb(74, 74, 74);
-    width: 250px;
+    width: 50%;
     float: left;
-    height: 250px;
+    height: 100%;
     border-radius: 0% 0% 0% 50%;
     background: #636300;
 }
 
 .bottom .right {
     border: 15px solid rgb(74, 74, 74);
-    width: 250px;
+    width: 50%;
     float: left;
-    height: 250px;
+    height: 100%;
     border-radius: 0% 0% 50% 0%;
     background-color: rgb(138, 0, 0);
 }
@@ -77,12 +78,12 @@ p {
 .center {
     clear: both;
     border: 15px solid rgb(74, 74, 74);
-    width: 300px;
-    height: 300px;
     border-radius: 50% 50% 50% 50%;
-    margin: 95px 100px;
+    margin: 25% 25% 25% 25%;
     position: absolute;
     background: lightgray;
+    width: 50%;
+    height: 50%;
 }
 
 .top .dail.left.active {
@@ -106,12 +107,14 @@ p {
 }
  
 main {
-    clear: both;
+      margin: auto;
+    width:402px; 
 }
 
 .board {
-    height: 500px;
-    overflow: hidden;
+    /* max-height: 402px; */
+    /* overflow: hidden; */
+    /* max-width: 402px; */
 }
 
 form {
@@ -128,27 +131,29 @@ input {
     display: block;
     margin-bottom: 10px;
     padding: 5px 5px 5px 17px;
-    width: 65px;
+    width: 100%;
     border: 1px solid lightgrey;
     border-radius: 3px;
     background: rgb(66, 52, 52);
-    font-size: 2em;
+    font-size: 1.2em;
     color: crimson;
     letter-spacing: 12px;
     font-family: monospace;
     text-align: center;
     font-weight: bold;
+    max-width: 44px;
+    height: 105%;
 }
 
 button {
-    font-size: 16px;
+    font-size: 14px;
     border-radius: 3px;
     background-color: lightgrey;
     border: 1px solid grey;
     box-shadow: 2px 2px teal;
     cursor: pointer;
-    height: 40px;
-    margin-left: 10px;
+    height: 30px;
+    margin-left: 5px;
 }
 
 button:active {
@@ -175,12 +180,10 @@ button.on, #state.on {
     background-color: yellow;
     color: #f64f4f;
     text-shadow: #ffffff 0px 1px 3px;
-    font-weight: bold;
+    /* font-weight: bold; */
     transition: all 0.0s;
-    width: 45px;
-    width: 106px;
-    height: 25px;
-    margin-left: 43px;
+    width: 75%;
+    margin-left: 0%;
 }
 
 #state {
@@ -198,6 +201,7 @@ label {
     font-size: 1.2em;
     height: 1em;
     padding-top: 40px;
+    display: none;
 }
 
 .notice.info {
@@ -205,19 +209,26 @@ label {
     font-size: 1.2em;
 }
 button#state {
-    width: 106px;
-    height: 25px;
-    margin-left: 40px;
+    width: 75%;
+    margin-left: 0%;
 }
 button#strict.on {
-    font-size: 16px;
+    font-size: 14px;
     border-radius: 3px;
     background-color: lightgrey;
     border: 1px solid grey;
     box-shadow: 2px 2px teal;
     cursor: pointer;
-    height: 40px;
-    margin-left: 10px;
-    width: 56px;
+    /* height: 40px; */
     background-color: yellow;
+    width: auto;
+    margin-left: 6px;
 }
+.slide1,.slide2 {
+    height: 402px;
+    width: 402px;
+    position: absolute;
+}
+
+.top,.bottom {
+    height: 50%;
