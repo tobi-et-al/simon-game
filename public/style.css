@@ -14,6 +14,7 @@ h1 {
     color: #f64f4f;
     text-shadow: rgb(0, 0, 0) 2px 2px;
     font-size: 3em;
+    margin-bottom: 0px;
 }
 
 .bold {
@@ -109,6 +110,7 @@ p {
 main {
     margin: auto;
     width: 402px;
+    padding-top: 30px;
 }
 
 .board {
